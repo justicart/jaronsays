@@ -6,6 +6,7 @@ import Jaron from './components/jaron';
 function App  () {
   return (
     <div className="App">
+      <h1 className="mainHeader">Jaron says</h1>
       <div className="quoteBox">
         <Post />
         <Jaron />

@@ -6,12 +6,17 @@ const text = "That gif is from an episode called: The Corbomite Maneuver. It was
 function Fascinating() {
   return (
     <div>
-      <h2>Fascinating</h2>
       <div className="rowParent wrap">
         <div className="imageBox">
           <img className="image" src={spock} />
         </div>
-        <div className="bodyText">{text}</div>
+        <div className="bodyText">
+          <h2>Fascinating</h2>
+          {text}
+          <div className="tags">
+            <div className="tag">star trek</div>
+          </div>
+        </div>
       </div>
     </div>
   );
