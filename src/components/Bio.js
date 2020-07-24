@@ -10,9 +10,9 @@ function Bio(props) {
     `}>
       <img src={jaron} alt="Me" />
       <p>
-        Things that Jaron says.
+        Some things that Jaron said.
         <br />
-        Some of them are worth saving for posterity.
+        Sometimes they're worth saving for posterity.
       </p>
     </div>
   )
