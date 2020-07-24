@@ -1,7 +1,11 @@
+.blogPage {
+  padding-bottom: 1.3125rem;
+  height: 100%;
+}
+
 .container {
   margin: 0 auto;
   max-width: 42rem;
-  padding: 2.625rem 1.3125rem;
 }
 
 .title {
@@ -12,8 +16,16 @@
   margin-top: 0;
   margin-bottom: 0;
   text-rendering: optimizeLegibility;
+
+  padding: 1.3125rem;
 }
 .title > a {
   color: var(--primary-color-light);
   text-decoration: none;
+}
+
+.separator {
+  margin: 1.3125rem -1.3125rem 0;
+  height: 1px;
+  background: var(--primary-color-light);
 }

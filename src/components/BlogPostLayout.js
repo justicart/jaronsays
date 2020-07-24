@@ -1,9 +1,8 @@
 import React from 'react'
 import { Link, useCurrentRoute, useView } from 'react-navi'
 import { MDXProvider } from '@mdx-js/react'
-import siteMetadata from '../siteMetadata'
 import ArticleMeta from './ArticleMeta'
-import Bio from './Bio'
+import Picture from './Picture'
 import styles from './BlogPostLayout.module.css'
 
 function BlogPostLayout({ blogRoot }) {
@@ -15,7 +14,7 @@ function BlogPostLayout({ blogRoot }) {
   // to use <MDXProvider> to ensure that links are rendered
   // with <Link>, and thus use pushState.
   return connect(
-    <>
+    <div className={styles.main}>
       {head}
       <article className={styles.container}>
         <header className={styles.header}>
@@ -27,6 +26,7 @@ function BlogPostLayout({ blogRoot }) {
             meta={data}
             readingTime={readingTime}
           />
+          <div className={styles.separator} />
         </header>
         <MDXProvider components={{
           a: Link,
@@ -37,30 +37,34 @@ function BlogPostLayout({ blogRoot }) {
         }}>
           <MDXComponent />
         </MDXProvider>
+        <div className={styles.separator} />
         <footer className={styles.footer}>
-          <h3 className={styles.title}>
-            <Link href={blogRoot}>
-              {siteMetadata.title}
-            </Link>
-          </h3>
-          <Bio className={styles.bio} />
           <section className={styles.links}>
+            <div className={styles.previous}>
             {
               data.previousDetails &&
-              <Link className={styles.previous} href={data.previousDetails.href}>
+              <Link href={data.previousDetails.href}>
                 ← {data.previousDetails.title}
               </Link>
             }
+            </div>
+            <div  className={styles.home}>
+              <Link href={blogRoot}>
+                <Picture />
+              </Link>
+            </div>
+            <div className={styles.next}>
             {
               data.nextDetails &&
-              <Link className={styles.next} href={data.nextDetails.href}>
+              <Link href={data.nextDetails.href}>
                 {data.nextDetails.title} →
               </Link>
             }
+            </div>
           </section>
         </footer>
       </article>
-    </>
+    </div>
   )
 }
 

@@ -17,15 +17,14 @@ function ArticleMeta({ blogRoot, meta, readingTime }) {
         </span>
       </React.Fragment>
   }
-      
+
   return (
     <small className={styles.ArticleMeta}>
       <time dateTime={meta.date.toUTCString()}>{formatDate(meta.date)}</time>
       {
         meta.tags &&
         meta.tags.length &&
-        <>
-          {' '}&bull;{' '}
+        <div className={styles.metaRight}>
           <ul className={styles.tags}>
             {meta.tags.map(tag =>
               <li key={tag}>
@@ -33,7 +32,7 @@ function ArticleMeta({ blogRoot, meta, readingTime }) {
               </li>
             )}
           </ul>
-        </>
+        </div>
       }
       {readingTimeElement || null}
     </small>

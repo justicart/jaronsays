@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Bio.module.css'
-import jaron from './j.jpg'
+import Picture from './Picture'
 
 function Bio(props) {
   return (
@@ -8,8 +8,8 @@ function Bio(props) {
       ${styles.Bio}
       ${props.className || ''}
     `}>
-      <img src={jaron} alt="Me" />
-      <p>
+      <Picture />
+      <p className={styles.text}>
         Some things that Jaron said.
         <br />
         Sometimes they're worth saving for posterity.

@@ -14,23 +14,25 @@ function BlogLayout({ blogRoot, isViewingIndex }) {
   let loadingRoute = useLoadingRoute()
 
   return (
-    <div className={styles.container}>
-      <LoadingIndicator active={!!loadingRoute} />
+    <div className={styles.blogPage}>
+      <div className={styles.container}>
+        <LoadingIndicator active={!!loadingRoute} />
 
-      {// Don't show the header on index pages, as it has a special header.
-      !isViewingIndex && (
-        <header>
-          <h3 className={styles.title}>
-            <Link href={blogRoot}>{siteMetadata.title}</Link>
-          </h3>
-        </header>
-      )}
+        {// Don't show the header on index pages, as it has a special header.
+        !isViewingIndex && (
+          <header>
+            <h3 className={styles.title}>
+              <Link href={blogRoot}>{siteMetadata.title}</Link>
+            </h3>
+          </header>
+        )}
 
-      <main>
-        <NotFoundBoundary render={() => <NotFoundPage />}>
-          <View />
-        </NotFoundBoundary>
-      </main>
+        <main>
+          <NotFoundBoundary render={() => <NotFoundPage />}>
+            <View />
+          </NotFoundBoundary>
+        </main>
+      </div>
     </div>
   )
 }
